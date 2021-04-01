@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96645F4F2614A04000F485E5 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96645F4E2614A04000F485E5 /* RatingControl.swift */; };
 		96915596260E2BB50016C492 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96915595260E2BB50016C492 /* AppDelegate.swift */; };
 		96915598260E2BB50016C492 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96915597260E2BB50016C492 /* SceneDelegate.swift */; };
 		9691559A260E2BB50016C492 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96915599260E2BB50016C492 /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		96645F4E2614A04000F485E5 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		96915592260E2BB50016C492 /* FoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96915595260E2BB50016C492 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96915597260E2BB50016C492 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				96915595260E2BB50016C492 /* AppDelegate.swift */,
 				96915597260E2BB50016C492 /* SceneDelegate.swift */,
 				96915599260E2BB50016C492 /* ViewController.swift */,
+				96645F4E2614A04000F485E5 /* RatingControl.swift */,
 				9691559B260E2BB50016C492 /* Main.storyboard */,
 				9691559E260E2BB50016C492 /* Assets.xcassets */,
 				969155A0260E2BB50016C492 /* LaunchScreen.storyboard */,
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96645F4F2614A04000F485E5 /* RatingControl.swift in Sources */,
 				9691559A260E2BB50016C492 /* ViewController.swift in Sources */,
 				96915596260E2BB50016C492 /* AppDelegate.swift in Sources */,
 				96915598260E2BB50016C492 /* SceneDelegate.swift in Sources */,
