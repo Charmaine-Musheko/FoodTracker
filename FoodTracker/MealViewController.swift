@@ -10,17 +10,20 @@ import os.log
 
 class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 //MARK: Properties
-
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var photoImageView: UIImageView!
+//
+    @IBOutlet weak var nameTextField: UITextField! //IBOutlet attribute tells XCode that you can connect to the nameTextField property from Interface Builder
+    @IBOutlet weak var photoImageView: UIImageView!//exclamation point indicates that this is a implicitly unwrapped optional variable (will always have a value after its set)
     @IBOutlet weak var ratingControl: RatingControl!
     /*This value is either passed by 'MealTableViewController' in 'prepare(for:sender:)'
      or constructed as part of adding a new meal*/
     var meal: Meal?
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    // understand the view controller lifecycle
+    //viewDidLoad use this method to perform any additional setup required by the time this method is called.
     
-    override func viewDidLoad() {
+    
+        override func viewDidLoad() {
         super.viewDidLoad()
        //Handle the text field's user input through delegate callbacks
         nameTextField.delegate = self
@@ -95,7 +98,6 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     //This method lets you configure a view controller before it's presented
     override func prepare(for segue: UIStoryboardSegue, sender:Any?){
         super.prepare(for: segue, sender: sender)
-        
         //Configure the destination view controller only when the save button is pressed
         guard let button = sender as? UIBarButtonItem, button === saveButton else {
             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
@@ -111,7 +113,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
 //MARK: Actions
-    
+    //Action is a piece of code that's linked to an event that can occur in your app
   
     @IBAction func selectImageFromLibrary(_ sender: UITapGestureRecognizer) { //Hide the keyboard
         nameTextField.resignFirstResponder()

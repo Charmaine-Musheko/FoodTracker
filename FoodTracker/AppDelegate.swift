@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // Let Swift know that we’re going to make this a UIViewController
+  
         return true
     }
 
@@ -30,7 +33,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    lazy var persistentContainer: NSPersistentContainer = {
+        /*
+         The persistent container for the application. This implementation
+         creates and returns a container, having loaded the store for the
+         application to it. This property is optional since there are legitimate
+         error conditions that could cause the creation of the store to fail.
+        */
+        let container = NSPersistentContainer(name: "CoreDataList")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                 
+                /*
+                 Typical reasons for an error here include:
+                 * The parent directory does not exist, cannot be created, or disallows writing.
+                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+                 * The device is out of space.
+                 * The store could not be migrated to the current model version.
+                 Check the error message to determine what the actual problem was.
+                 */
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
 
+    // MARK: - Core Data Saving support
+
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
     /*
      action: a piece of code that's linked to an event that can occur in your app
     activity viewer: part of the xcode toolbar that displays messages about the build processs and other information
@@ -79,7 +123,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      Model-View-Controller(MVC): a pattern of app design in which view controllers serve as the communication pipeline between views and data medel
      mutable:A vlaue that is able to be changed (or mutated) after it's initialized, like a variable
      navigation stack: The set of view controllers managed by a particular navigation controller
+   
      */
     
+    /*Built in Data types
+     
+     Character - this is a single-character string literal. e.g. 'C'
+     Optional - this represents a variable that can hold either a value or no value
+     Tuples - This is used to group multiple values in single Compound value e.g.
+     var TupleName = (Value1, value2,... any number of values)
+     var error501 = (501, "Not implemented")
+     
+     Type Aliases - you can create a new name for an existing type using
+     
+     typlealias newname = type
+     typealias Feet = Int
+     var distance: Feet = 100
+     print(distance)
+     Type annotations- you can provide a type annotation when you declare a variable, to be clear about the kind of values the variable can store. var variableName:<data type> = <optional initial value> e.g
+     var varA = 42
+     print(varA)
+     var varB:Float
+     varB = 3.14159
+     print(varB)
+     Forced unwrapping - if you defined a variable as optional, then to get to the value from this variable, you will have to unwrap it. This means puttin an exclamation mark at the end of the variable
+     e.g.
+     var myString:String?
+     myString = "Helo, Swift4!"
+     
+     if myString !=nil {
+     print( myString! )
+     } else {
+     print("myString has nil value")
+     }
+     
+     Literals - a literal is the source code representation of a value of an integer, floating-point number, or string type. e.g
+     42
+     3.14159
+     "Hello, World"
+     
+     */
 }
 

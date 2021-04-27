@@ -27,6 +27,7 @@ class MealTableViewController: UITableViewController {
         if let savedMeals = loadMeals(){
             meals += savedMeals
             
+            
         } else {
         // Load the sample data.
         loadSampleMeals()
@@ -117,8 +118,8 @@ class MealTableViewController: UITableViewController {
         guard let mealDetailViewController = segue.destination as? MealViewController else {
             fatalError("Unexpected destination: \(segue.destination)")
         }
-         
-        guard let selectedMealCell = sender as? MealTableViewCell else {
+            
+            guard let selectedMealCell = sender as? MealTableViewCell else {
             fatalError("Unexpected sender: \(sender)")
         }
          
